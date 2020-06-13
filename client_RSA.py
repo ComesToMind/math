@@ -1,9 +1,7 @@
 import socket
 
 def encrypt(key,n, plaintext):
-    #Convert each letter in the plaintext to numbers based on the character using a^b mod m
     cipher = [(pow(ord(char), key, n)) for char in plaintext]
-    #Return the array of bytes
     return cipher
 
 
@@ -12,7 +10,6 @@ def get_data(sock):
     while ' ' not in buf:
         buf += sock.recv(1).decode('utf8')
     return buf
-
 sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 # conn, addr = sock.accept()
 
